@@ -128,7 +128,7 @@ variable "learned_cidrs_approval_mode" {
 }
 
 locals {
-  region_name = join("-", slice(split(" ", var.region), 1, -1))
+  region_name = join("-", slice(split(" ", var.region), 1, length(split(" ", var.region)))) #Drop first part before first space of region name and join rest together with dashes.
   lower_name  = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(local.region_name), " ", "-")
   prefix      = var.prefix ? "avx-" : ""
   suffix      = var.suffix ? "-transit" : ""
