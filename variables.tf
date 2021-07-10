@@ -128,10 +128,11 @@ variable "learned_cidrs_approval_mode" {
 }
 
 locals {
-  lower_name = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
-  prefix     = var.prefix ? "avx-" : ""
-  suffix     = var.suffix ? "-transit" : ""
-  name       = "${local.prefix}${local.lower_name}${local.suffix}"
-  subnet     = aviatrix_vpc.default.public_subnets[0].cidr
-  ha_subnet  = aviatrix_vpc.default.public_subnets[2].cidr
+  region_name = join("-", slice(split(" ", var.region), 1, -1))
+  lower_name  = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(local.region_name), " ", "-")
+  prefix      = var.prefix ? "avx-" : ""
+  suffix      = var.suffix ? "-transit" : ""
+  name        = "${local.prefix}${local.lower_name}${local.suffix}"
+  subnet      = aviatrix_vpc.default.public_subnets[0].cidr
+  ha_subnet   = aviatrix_vpc.default.public_subnets[2].cidr
 }
