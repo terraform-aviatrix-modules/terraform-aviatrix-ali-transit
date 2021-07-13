@@ -13,7 +13,7 @@ with ha_gw set to false, the following will be deployed:
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
-v4.0.0 | 0.13+0.14 | 6.4 | 0.2.19
+v4.0.0 | 0.13-0.15 | >=6.4 | >=0.2.19
 
 ### Usage Example
 ```
