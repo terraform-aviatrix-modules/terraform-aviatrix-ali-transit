@@ -4,8 +4,11 @@
 This module deploys a VPC and a set of Aviatrix transit gateways.
 
 ### Diagram
-\<Provide a diagram of the high level constructs thet will be created by this module>
-<img src="<IMG URL>"  height="250">
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-ali-transit/blob/master/img/transit-vpc-ali-ha.png?raw=true">
+
+with ha_gw set to false, the following will be deployed:
+
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-ali-transit/blob/master/img/transit-vpc-ali.png?raw=true">
 
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
